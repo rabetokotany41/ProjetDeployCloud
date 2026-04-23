@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { 
   FaRocket, FaCode, FaMobile, FaCloud, 
@@ -6,6 +6,8 @@ import {
   FaArrowRight, FaStar, FaHeart, FaBolt,
   FaShieldAlt, FaGlobe, FaChartLine, FaUsers
 } from 'react-icons/fa';
+import { PerformanceMonitor } from './monitoring/PerformanceMonitor';
+import { MonitoringDashboard } from './monitoring/MonitoringDashboard';
 
 const App = () => {
   const { scrollYProgress } = useScroll();
@@ -14,6 +16,8 @@ const App = () => {
 
   return (
     <div className="bg-black min-h-screen overflow-x-hidden">
+      <PerformanceMonitor />
+      <MonitoringDashboard />
       <Navbar />
       <Hero opacity={opacity} scale={scale} />
       <Features />
@@ -114,7 +118,7 @@ const Navbar = () => {
   );
 };
 
-const Hero = ({ opacity, scale }) => {
+const Hero = ({ opacity, scale }: { opacity: any; scale: any }) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}

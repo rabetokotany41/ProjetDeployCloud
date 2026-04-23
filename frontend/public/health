@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Check</title>
+</head>
+<body>
+    <script>
+        const healthData = {
+            status: 'healthy',
+            timestamp: new Date().toISOString(),
+            version: '1.0.0',
+            uptime: performance.now(),
+            service: 'portfolio-site'
+        };
+        
+        // Respond with JSON for health check
+        if (window.location.pathname.includes('/health')) {
+            document.body.innerHTML = JSON.stringify(healthData, null, 2);
+        }
+    </script>
+</body>
+</html>
